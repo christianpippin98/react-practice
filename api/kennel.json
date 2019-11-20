@@ -1,21 +1,44 @@
 {
-    "animals": [
-        { "id": 1, "name": "Kawai'i", "breed": "Goldendoodle"},
-        { "id": 2, "name": "Flower", "breed": "Springer Spaniel" },
-        { "id": 3, "name": "Beauregard", "breed": "Coonhound" }
-    ],
-    "employees": [
-        { "id": 1, "name": "Justice Pippin" },
-        { "id": 2, "name": "Levi Pippin" },
-        { "id": 3, "name": "Brant Pippin"},
-        { "id": 4, "name": "Christian Pippin"}
-    ],
-    "locations": [
-        { "id": 1, "name": "Home", "address": "217 Hickory Trl", "city": "Whitehouse", "state": "TN" },
-        { "id": 2, "name": "Grandmas House", "address": "327 Martin Ln", "city": "Cottontown", "state": "TN" }
-    ],
-    "owners": [
-        { "id": 1, "name": "Joey Pippin", "phoneNumber": "(615) 456-7890" },
-        { "id": 2, "name": "Amy Pippin", "phoneNumber": "(615) 405-3935" }
-    ]
+  "animals": [
+    {
+      "id": 1,
+      "name": "Kawai'i",
+      "breed": "Goldendoodle"
+    },
+    {
+      "id": 3,
+      "name": "Beauregard",
+      "breed": "Coonhound"
+    }
+  ],
+  "employees": [
+    {
+      "id": 2,
+      "name": "Levi Pippin"
+    },
+    {
+      "id": 3,
+      "name": "Brant Pippin"
+    },
+    {
+      "id": 4,
+      "name": "Christian Pippin"
+    }
+  ],
+  "locations": [
+    {
+      "id": 1,
+      "name": "Home",
+      "address": "217 Hickory Trl",
+      "city": "Whitehouse",
+      "state": "TN"
+    }
+  ],
+  "owners": [
+    {
+      "id": 1,
+      "name": "Joey Pippin",
+      "phoneNumber": "(615) 456-7890"
+    }
+  ]
 }

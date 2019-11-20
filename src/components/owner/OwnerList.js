@@ -4,33 +4,50 @@ import OwnerCard from './OwnerCard'
 import OwnerManager from '../../modules/OwnerManager'
 
 class OwnerList extends Component {
-    //define what this component needs to render
-    state = {
-        owners: [],
-    }
+  //define what this component needs to render
+  state = {
+    owners: [],
+  }
 
-    componentDidMount() {
-        console.log("OWNER LIST: ComponentDidMount");
-        //getAll from EmployeeManager and hang on to that data; put it in state
+  componentDidMount() {
+    console.log("OWNER LIST: ComponentDidMount");
+    //getAll from EmployeeManager and hang on to that data; put it in state
+    OwnerManager.getAll()
+      .then((owners) => {
+        this.setState({
+          owners: owners
+        })
+      })
+  }
+
+  deleteOwner = id => {
+    OwnerManager.delete(id)
+      .then(() => {
         OwnerManager.getAll()
-            .then((owners) => {
-                this.setState({
-                    owners: owners
-                })
+          .then((newOwners) => {
+            this.setState({
+              owners: newOwners
             })
-    }
+          })
+      })
+  }
 
-    render() {
-        console.log("OwnerList: Render");
+  render() {
+    console.log("OwnerList: Render");
 
-        return (
-            <div className="container-cards">
-                {this.state.owners.map(owner =>
-                    <OwnerCard key={owner.id} owner={owner} />
-                )}
-            </div>
-        )
-    }
+    return (
+      <div className="container-cards">
+        {this.state.owners.map(owner =>
+          <OwnerCard
+            key={owner.id}
+            owner={owner}
+            deleteOwner={this.deleteOwner}
+          />
+        )}
+      </div>
+    )
+  }
+
 }
 
 export default OwnerList

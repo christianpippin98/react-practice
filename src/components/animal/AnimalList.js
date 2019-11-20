@@ -20,17 +20,33 @@ class AnimalList extends Component {
             })
     }
 
-    render() {
-        console.log("AnimalList: Render");
+    deleteAnimal = id => {
+        AnimalManager.delete(id)
+        .then(() => {
+          AnimalManager.getAll()
+          .then((newAnimals) => {
+            this.setState({
+                animals: newAnimals
+            })
+          })
+        })
+      }
 
-        return (
-            <div className="container-cards">
-                {this.state.animals.map(animal =>
-                    <AnimalCard key={animal.id} animal={animal} />
-                )}
-            </div>
+    render(){
+        console.log("AnimalList: Render");
+      
+        return(
+          <div className="container-cards">
+            {this.state.animals.map(animal =>
+              <AnimalCard
+                key={animal.id}
+                animal={animal}
+                deleteAnimal={this.deleteAnimal}
+              />
+            )}
+          </div>
         )
-    }
+      }
 }
 
 export default AnimalList

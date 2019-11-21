@@ -4,6 +4,41 @@
       "id": 1,
       "name": "Kawai'i",
       "breed": "Goldendoodle"
+    },
+    {
+      "name": "Beauregard",
+      "breed": "Coonhound",
+      "id": 2
+    },
+    {
+      "name": "Flower",
+      "breed": "Springer Spaniel",
+      "id": 3
+    },
+    {
+      "name": "Daisy",
+      "breed": "Husky",
+      "id": 4
+    },
+    {
+      "name": "Luna",
+      "breed": "Husky",
+      "id": 5
+    },
+    {
+      "name": "Indigo",
+      "breed": "German Shepherd",
+      "id": 6
+    },
+    {
+      "name": "Gypsy",
+      "breed": "Springer Spaniel Mix",
+      "id": 7
+    },
+    {
+      "name": "Mabel",
+      "breed": "Brittney Spaniel",
+      "id": 8
     }
   ],
   "employees": [

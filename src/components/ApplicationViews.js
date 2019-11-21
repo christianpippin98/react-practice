@@ -6,6 +6,9 @@ import EmployeeList from './employees/EmployeeList'
 import LocationList from './location/LocationList'
 import OwnerList from './owner/OwnerList'
 import AnimalDetail from './animal/AnimalDetail'
+import EmployeeDetail from './employees/EmployeeDetail'
+import LocationDetail from './location/LocationDetail'
+import OwnerDetail from './owner/OwnerDetail'
 //only include these once they are built - previous practice exercise
 
 
@@ -23,7 +26,10 @@ class ApplicationViews extends Component {
         }} />
         <Route path="/animals/:animalId(\d+)" render={(props) => {
           // Pass the animalId to the AnimalDetailComponent
-          return <AnimalDetail animalId={parseInt(props.match.params.animalId)} />
+          return <AnimalDetail 
+          animalId={parseInt(props.match.params.animalId)} 
+          {...props}
+          />
         }} />
 
         {/*
@@ -34,15 +40,35 @@ class ApplicationViews extends Component {
   matches only numbers after the final slash in the URL
   http://localhost:3000/animals/jack
 */}
-        <Route path="/employees" render={(props) => {
-          console.log("hi")
+        <Route exact path="/employees" render={(props) => {
           return <EmployeeList />
         }} />
-        <Route path="/owners" render={(props) => {
+        <Route path="/employees/:employeeId(\d+)" render={(props) => {
+          // Pass the employeeId to the EmployeeDetailComponent
+          return <EmployeeDetail 
+          employeeId={parseInt(props.match.params.employeeId)} 
+          {...props}
+          />
+        }} />
+        <Route exact path="/owners" render={(props) => {
           return <OwnerList />
         }} />
-        <Route path="/locations" render={(props) => {
+        <Route path="/owners/:ownerId(\d+)" render={(props) => {
+          // Pass the ownerId to the OwnerDetailComponent
+          return <OwnerDetail 
+          ownerId={parseInt(props.match.params.ownerId)} 
+          {...props}
+          />
+        }} />
+        <Route exact path="/locations" render={(props) => {
           return <LocationList />
+        }} />
+        <Route path="/locations/:locationId(\d+)" render={(props) => {
+          // Pass the locationId to the LocationDetailComponent
+          return <LocationDetail 
+          locationId={parseInt(props.match.params.locationId)} 
+          {...props}
+          />
         }} />
       </>
     )

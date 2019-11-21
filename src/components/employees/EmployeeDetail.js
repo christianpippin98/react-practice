@@ -1,23 +1,21 @@
 import React, { Component } from 'react';
-import AnimalManager from '../../modules/AnimalManager';
-import './AnimalDetail.css'
+import EmployeeManager from '../../modules/EmployeeManager';
+import './EmployeeDetail.css'
 
-class AnimalDetail extends Component {
+class EmployeeDetail extends Component {
 
     state = {
         name: "",
-        breed: "",
         loadingStatus: true,
     }
 
     componentDidMount(){
-        console.log("AnimalDetail: ComponentDidMount");
+        console.log("EmployeeDetail: ComponentDidMount");
         //get(id) from AnimalManager and hang on to that data; put it into state
-        AnimalManager.get(this.props.animalId)
-        .then((animal) => {
+        EmployeeManager.get(this.props.employeeId)
+        .then((employee) => {
             this.setState({
-                name: animal.name,
-                breed: animal.breed,
+                name: employee.name,
                 loadingStatus: false
             });
         });
@@ -26,8 +24,8 @@ class AnimalDetail extends Component {
     handleDelete = () => {
       //invoke the delete function in AnimalManger and re-direct to the animal list.
       this.setState({loadingStatus: true})
-      AnimalManager.delete(this.props.animalId)
-      .then(() => this.props.history.push("/animals"))
+      EmployeeManager.delete(this.props.employeeId)
+      .then(() => this.props.history.push("/employees"))
   }
 
     render() {
@@ -35,15 +33,14 @@ class AnimalDetail extends Component {
         <div className="card">
           <div className="card-content">
             <picture>
-              <img src={require('./dog.svg')} alt="My Dog" />
+              <img src={require('./employee.png')} alt="Employee" />
             </picture>
             <h3>Name: <span style={{ color: 'darkslategrey' }}>{this.state.name}</span></h3>
-            <p>Breed: {this.state.breed}</p>
-            <button type="button" disabled={this.state.loadingStatus} onClick={this.handleDelete}>Discharge</button>
+            <button type="button" disabled={this.state.loadingStatus} onClick={this.handleDelete}>Fire</button>
           </div>
         </div>
       );
     }
 }
 
-export default AnimalDetail;
+export default EmployeeDetail;

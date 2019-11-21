@@ -4,21 +4,12 @@
       "id": 1,
       "name": "Kawai'i",
       "breed": "Goldendoodle"
-    },
-    {
-      "id": 3,
-      "name": "Beauregard",
-      "breed": "Coonhound"
     }
   ],
   "employees": [
     {
       "id": 2,
       "name": "Levi Pippin"
-    },
-    {
-      "id": 3,
-      "name": "Brant Pippin"
     },
     {
       "id": 4,

@@ -1,18 +1,26 @@
-import { Route } from 'react-router-dom'
+import { Route, withRouter, Redirect } from "react-router-dom"
 import React, { Component } from 'react'
 import Home from './home/Home'
+import Login from './auth/Login'
 import AnimalList from './animal/AnimalList'
-import EmployeeList from './employees/EmployeeList'
-import LocationList from './location/LocationList'
-import OwnerList from './owner/OwnerList'
 import AnimalDetail from './animal/AnimalDetail'
-import EmployeeDetail from './employees/EmployeeDetail'
-import LocationDetail from './location/LocationDetail'
-import OwnerDetail from './owner/OwnerDetail'
 import AnimalForm from './animal/AnimalForm'
+import AnimalEditForm from './animal/AnimalEditForm'
+import EmployeeList from './employees/EmployeeList'
+import EmployeeDetail from './employees/EmployeeDetail'
+import EmployeeForm from './employees/EmployeeForm'
+import EmployeeEditForm from './employees/EmployeeEditForm'
+import LocationList from './location/LocationList'
+import LocationDetail from './location/LocationDetail'
+import OwnerList from './owner/OwnerList'
+import OwnerDetail from './owner/OwnerDetail'
 
 
 class ApplicationViews extends Component {
+
+  // Check if credentials are in local storage
+  //returns true/false
+  isAuthenticated = () => localStorage.getItem("credentials") !== null
 
   render() {
     return (
@@ -20,13 +28,23 @@ class ApplicationViews extends Component {
         <Route exact path="/" render={(props) => {
           return <Home />
         }} />
-        <Route exact path="/animals" render={(props) => {
-          return <AnimalList {...props} />
+        <Route path="/login" component={Login} />
+        <Route
+          path="/animals/:animalId(\d+)/edit" render={props => {
+            return <AnimalEditForm {...props} />
+          }}
+        />
+        <Route exact path="/animals" render={props => {
+          if (this.isAuthenticated()) {
+            return <AnimalList {...props} />
+          } else {
+            return <Redirect to="/login" />
+          }
         }} />
         <Route path="/animals/new" render={(props) => {
           return <AnimalForm {...props} />
         }} />
-        <Route path="/animals/:animalId(\d+)" render={(props) => {
+        <Route exact path="/animals/:animalId(\d+)" render={(props) => {
           // Pass the animalId to the AnimalDetailComponent
           return <AnimalDetail
             animalId={parseInt(props.match.params.animalId)}
@@ -42,13 +60,25 @@ class ApplicationViews extends Component {
   matches only numbers after the final slash in the URL
   http://localhost:3000/animals/jack
 */}
-        <Route exact path="/employees" render={(props) => {
-          return <EmployeeList />
+        <Route
+          path="/employees/:employeeId(\d+)/edit" render={props => {
+            return <EmployeeEditForm {...props} />
+          }}
+        />
+        <Route exact path="/employees" render={props => {
+          if (this.isAuthenticated()) {
+            return <EmployeeList {...props} />
+          } else {
+            return <Redirect to="/login" />
+          }
         }} />
-        <Route path="/employees/:employeeId(\d+)" render={(props) => {
+        <Route path="/employees/new" render={(props) => {
+          return <EmployeeForm {...props} />
+        }} />
+        <Route exact path="/employees/:employeeId(\d+)" render={(props) => {
           // Pass the employeeId to the EmployeeDetailComponent
           return <EmployeeDetail
-            employeeId={parseInt(props.match.params.employeeId)}
+            employeeId={parseInt(props.match.params.EmployeeId)}
             {...props}
           />
         }} />

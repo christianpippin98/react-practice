@@ -11,9 +11,9 @@
       "id": 2
     },
     {
+      "id": 3,
       "name": "Flower",
-      "breed": "Springer Spaniel",
-      "id": 3
+      "breed": "Springer Spaniel"
     },
     {
       "name": "Daisy",
@@ -36,19 +36,27 @@
       "id": 7
     },
     {
-      "name": "Mabel",
-      "breed": "Brittney Spaniel",
-      "id": 8
+      "id": 8,
+      "name": "Mable",
+      "breed": "Brittney Spaniel"
     }
   ],
   "employees": [
     {
       "id": 2,
-      "name": "Levi Pippin"
+      "name": "Levi C Pippin"
     },
     {
       "id": 4,
-      "name": "Christian Pippin"
+      "name": "Christian T Pippin"
+    },
+    {
+      "id": 5,
+      "name": "Brant G Pippin"
+    },
+    {
+      "name": "Justice M Pippin",
+      "id": 6
     }
   ],
   "locations": [

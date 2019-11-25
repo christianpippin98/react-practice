@@ -3,42 +3,44 @@
     {
       "id": 1,
       "name": "Kawai'i",
-      "breed": "Goldendoodle"
+      "breed": "Goldendoodle",
+      "employeeId": 4
     },
     {
+      "id": 2,
       "name": "Beauregard",
       "breed": "Coonhound",
-      "id": 2
-    },
-    {
-      "id": 3,
-      "name": "Flower",
-      "breed": "Springer Spaniel"
+      "employeeId": 5
     },
     {
       "name": "Daisy",
       "breed": "Husky",
-      "id": 4
+      "id": 4,
+      "employeeId": 2
     },
     {
       "name": "Luna",
       "breed": "Husky",
-      "id": 5
+      "id": 5,
+      "employeeId": 2
     },
     {
+      "id": 6,
       "name": "Indigo",
       "breed": "German Shepherd",
-      "id": 6
+      "employeeId": 4
     },
     {
       "name": "Gypsy",
       "breed": "Springer Spaniel Mix",
-      "id": 7
+      "id": 7,
+      "employeeId": 5
     },
     {
       "id": 8,
       "name": "Mable",
-      "breed": "Brittney Spaniel"
+      "breed": "Brittney Spaniel",
+      "employeeId": 6
     }
   ],
   "employees": [

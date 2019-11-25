@@ -14,6 +14,7 @@ import LocationList from './location/LocationList'
 import LocationDetail from './location/LocationDetail'
 import OwnerList from './owner/OwnerList'
 import OwnerDetail from './owner/OwnerDetail'
+import EmployeeWithAnimals from './employees/EmployeeWithAnimals'
 
 
 class ApplicationViews extends Component {
@@ -81,6 +82,9 @@ class ApplicationViews extends Component {
             employeeId={parseInt(props.match.params.EmployeeId)}
             {...props}
           />
+        }} />
+        <Route path="/employees/:employeeId(\d+)/details" render={(props) => {
+          return <EmployeeWithAnimals {...props} />
         }} />
         <Route exact path="/owners" render={(props) => {
           return <OwnerList />
